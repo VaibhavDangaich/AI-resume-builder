@@ -4,27 +4,39 @@ import './index.css'
 import App from './App.jsx'
 import { BrowserRouter, createBrowserRouter, RouterProvider } from 'react-router-dom'
 import SignInPage from './auth/sign-in'
-const router=createBrowserRouter([
+import Home from './home/index'
+import Dashboard from './dashboard/index'
+import {ClerkProvider} from '@clerk/clerk-react'
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
+const router = createBrowserRouter([
   {
-    element:<App></App>,
-    children:[
+    element: <App></App>,
+    children: [
       {
-        
+        path: "/",
+        element: <Home></Home>
+
+      },
+      {
+        path: "/dashboard",
+        element: <Dashboard></Dashboard>
       }
     ]
 
   },
   {
-    path:'/auth/sign-in' ,
-    element:<SignInPage></SignInPage>
+    path: '/auth/sign-in',
+    element: <SignInPage></SignInPage>
   }
 ]
 
 )
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router}>
+    <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
+      <RouterProvider router={router}>
+      </RouterProvider>
+    </ClerkProvider>
 
-    </RouterProvider>
   </StrictMode>,
 )

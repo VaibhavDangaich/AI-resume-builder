@@ -1,13 +1,15 @@
 
+import { Navigate,Outlet } from 'react-router-dom'
 import './App.css'
 import { Button } from './components/ui/button'
+import { useUser } from '@clerk/clerk-react'
 
 function App() {
+  const {user,isLoaded,isSignIn}=useUser();
 
   return (
   <div>
-  <Button className="bg-black text-white">Heyyyy</Button>
- 
+    <Outlet></Outlet> 
   </div>
   )
 }
