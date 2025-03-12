@@ -10,14 +10,21 @@ import {
 } from "@/components/ui/dialog"
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { v4 as uuidv4 } from 'uuid';
 
 
 
 
 function AddResume() {
-  const [openDialog,setOpenDialog]=useState(false)
+  const [openDialog,setOpenDialog]=useState(false);
+  const [resumeTitle,setResumeTitle]=useState('');
   function clickHandler(){
     openDialog ? (setOpenDialog(false)):(setOpenDialog(true))
+  }
+  const onCreate=()=>{
+    const uuid=uuidv4();
+    console.log("Resume Title : " ,resumeTitle);
+    console.log("Resume ID : ",uuid);
   }
   return (
     <div>
@@ -31,11 +38,13 @@ function AddResume() {
             <DialogTitle>Craft Your Next Resume</DialogTitle>
             <DialogDescription>
             <p>Add a title for your new resume</p>
-             <Input className="my-2" placeholder="Ex.Full Stack resume"></Input>
+             <Input className="my-2" placeholder="Ex.Full Stack resume" onChange={(e)=>{setResumeTitle(e.target.value)}}></Input>
             </DialogDescription>
             <div className='flex justify-end gap-5'>
               <Button variant="ghost" onClick={clickHandler}>Cancel</Button>
-              <Button>Create</Button>
+              <Button
+              disabled={!resumeTitle} 
+              onClick={onCreate}>Create</Button>
             </div>
 
           </DialogHeader>
