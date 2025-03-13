@@ -13,6 +13,7 @@ import { Input } from '@/components/ui/input';
 import { v4 as uuidv4 } from 'uuid';
 import { useUser } from '@clerk/clerk-react';
 import GlobalApi from './../../../Service/GlobalApi';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -22,6 +23,7 @@ function AddResume() {
   const [resumeTitle,setResumeTitle]=useState('');
   const {user}=useUser();
   const [loading,setLoading]=useState(false);
+  const NavigateTo=useNavigate();
   function clickHandler(){
     openDialog ? (setOpenDialog(false)):(setOpenDialog(true))
   }

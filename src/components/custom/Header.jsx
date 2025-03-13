@@ -11,8 +11,8 @@ function Header() {
             <div className='flex '>
                 <img src='https://img.icons8.com/?size=100&id=bLp8jngMI59L&format=png&color=000000' alt='AI resume builder' width={50} height={50}></img>
                 <div className=' font-extrabold'>
-                    <p>AI Resume</p>
-                       <p>Builder</p>
+                    <p className='bruno-ace-sc-regular text-xl'><span className='iceberg-regular text-3xl font-extrabold'>AI</span> Resume</p>
+                    <p className='bruno-ace-sc-regular text-xl'>Builder</p>
                 </div>
 
 
@@ -21,11 +21,14 @@ function Header() {
             {
                 isSignedIn ?
                     (
-                        <div className='flex gap-2 items-center'>
+                        <div className='flex gap-10 items-center'>
                             <NavLink to='/dashboard'>
-                                <Button variant='outline'>Dashboard</Button>
+                                <Button variant='outline' className="w-[130px] h-full">Dashboard</Button>
                             </NavLink>
-                            <UserButton></UserButton>
+                            <div style={{ transform: "scale(1.6)" }}>
+                                <UserButton />
+                            </div>
+
                         </div>
                     ) : (
                         <div>
