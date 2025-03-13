@@ -6,6 +6,7 @@ import { useUser } from '@clerk/clerk-react'
 import Header from './components/custom/Header';
 
 function App() {
+  console.log("app is loading");
   const {user,isLoaded,isSignedIn}=useUser();
   
   if(!isSignedIn&&isLoaded)
@@ -20,5 +21,6 @@ function App() {
   </div>
   )
 }
+console.log("App is loaded successfully");
 
 export default App

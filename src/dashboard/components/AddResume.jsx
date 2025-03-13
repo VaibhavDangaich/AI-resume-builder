@@ -1,4 +1,4 @@
-import { PlusSquare } from 'lucide-react'
+import { Loader2, PlusSquare } from 'lucide-react'
 import React, { useState } from 'react'
 import {
   Dialog,
@@ -11,6 +11,8 @@ import {
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { v4 as uuidv4 } from 'uuid';
+import { useUser } from '@clerk/clerk-react';
+import GlobalApi from './../../../Service/GlobalApi';
 
 
 
@@ -18,20 +20,40 @@ import { v4 as uuidv4 } from 'uuid';
 function AddResume() {
   const [openDialog,setOpenDialog]=useState(false);
   const [resumeTitle,setResumeTitle]=useState('');
+  const {user}=useUser();
+  const [loading,setLoading]=useState(false);
   function clickHandler(){
     openDialog ? (setOpenDialog(false)):(setOpenDialog(true))
   }
-  const onCreate=()=>{
-    const uuid=uuidv4();
-    console.log("Resume Title : " ,resumeTitle);
-    console.log("Resume ID : ",uuid);
-  }
+  const onCreate = async () => {
+    try {
+      setLoading(true);
+      const uuid = uuidv4();
+      const data = {
+        data: {
+          title: resumeTitle,
+          resumeId: uuid, // Correct UUID assignment
+          userEmail: user?.primaryEmailAddress?.emailAddress,
+          userName: user?.fullName,
+        }
+      };
+  
+      const resp = await GlobalApi.createNewResume(data);
+      console.log(resp);
+      setLoading(false);
+      setOpenDialog(false); // Close dialog after success
+    } catch (error) {
+      console.error("Error creating resume:", error);
+      setLoading(false);
+    }
+  };
+  
   return (
     <div>
       <div className='p-14 py-24 flex items-center justify-center bg-secondary rounded-lg h-[280px] hover:scale-105 transition-all hover:shadow-xl shadow-black duration-200 cursor-pointer border-dashed border-black border-2' onClick={clickHandler}>
         <PlusSquare></PlusSquare>
       </div>
-      <Dialog open={openDialog} onClose={()=>setOpenDialog(false)}>
+      <Dialog open={openDialog}>
       
         <DialogContent>
           <DialogHeader>
@@ -43,8 +65,13 @@ function AddResume() {
             <div className='flex justify-end gap-5'>
               <Button variant="ghost" onClick={clickHandler}>Cancel</Button>
               <Button
-              disabled={!resumeTitle} 
-              onClick={onCreate}>Create</Button>
+              disabled={!resumeTitle || loading} 
+              onClick={onCreate}>
+              {
+                loading?
+                (<Loader2 className='animate-spin'></Loader2>):('Create')
+              }
+              </Button>
             </div>
 
           </DialogHeader>
