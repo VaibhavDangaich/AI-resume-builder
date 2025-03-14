@@ -41,9 +41,16 @@ function AddResume() {
       };
   
       const resp = await GlobalApi.createNewResume(data);
-      console.log(resp);
+      console.log(resp.data.data.documentId);
       setLoading(false);
+
       setOpenDialog(false); // Close dialog after success
+      if(resp)
+      {
+        NavigateTo('/dashboard/resume/'+resp.data.data.documentId+"/edit"); // Navigate to resume page with the new resume id
+
+      }
+      
     } catch (error) {
       console.error("Error creating resume:", error);
       setLoading(false);
