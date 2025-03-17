@@ -4,6 +4,8 @@ import './App.css'
 import { Button } from './components/ui/button'
 import { useUser } from '@clerk/clerk-react'
 import Header from './components/custom/Header';
+import toast, { Toaster } from 'react-hot-toast';
+
 
 function App() {
   console.log("app is loading");
@@ -18,6 +20,8 @@ function App() {
   <div>
   <Header></Header>
     <Outlet></Outlet> 
+    <Toaster />
+
   </div>
   )
 }

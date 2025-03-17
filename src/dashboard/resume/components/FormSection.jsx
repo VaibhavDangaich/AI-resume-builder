@@ -9,6 +9,7 @@ import SkillsForm from './forms/SkillsForm';
 
 function FormSection() {
   const [activeFormIndex, setActiveFormIndex] = useState(1);
+  const [enableNext,setEnableNext]=useState(false);
 
   return (
     <div>
@@ -19,14 +20,14 @@ function FormSection() {
             activeFormIndex > 1 && <Button className="flex gap-2" size="sm" onClick={() => { setActiveFormIndex((prev) => prev - 1) }} ><ArrowLeft></ArrowLeft> Previous</Button>
 
           }
-          <Button className="flex gap-2" size="sm" onClick={() => { setActiveFormIndex((prev) => prev + 1) }}>Next <ArrowRight></ArrowRight></Button>
+          <Button disabled={!enableNext} className="flex gap-2" size="sm" onClick={() => { setActiveFormIndex((prev) => prev + 1) }}>Next <ArrowRight></ArrowRight></Button>
         </div>
 
       </div>
       {/* Personal details form */}
       {
         activeFormIndex === 1 &&
-        <PersonalDetail></PersonalDetail>
+        <PersonalDetail enableNext={(v)=>setEnableNext(v)}></PersonalDetail>
       }
       {/* Summary form */}
       {
