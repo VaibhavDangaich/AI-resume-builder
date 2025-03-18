@@ -32,21 +32,21 @@ function FormSection() {
       {/* Summary form */}
       {
         activeFormIndex === 2 &&
-        <SummaryForm></SummaryForm>
+        <SummaryForm enableNext={(v)=>setEnableNext(v)}></SummaryForm>
       }
 
 
       {/* Professional experience form */}
       {
         activeFormIndex===3 && 
-        <ExperienceForm></ExperienceForm>
+        <ExperienceForm enableNext={(v)=>setEnableNext(v)}></ExperienceForm>
       }
 
 
       {/* Education form */}
       {
         activeFormIndex===4 &&
-        <EducationForm></EducationForm>
+        <EducationForm enableNext={(v)=>setEnableNext(v)}></EducationForm>
       }
 
 

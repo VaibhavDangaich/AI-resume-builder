@@ -6,12 +6,53 @@ import { ResumeInfoContext } from '@/context/ResumeInfoContext';
 import GlobalApi from '../../../../../Service/GlobalApi';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { AIChatSession } from '../../../../../Service/AIModel';
 
 function SummaryForm({ enableNext }) {  // ✅ Added enableNext as a prop
     const { resumeInfo, setResumeInfo } = useContext(ResumeInfoContext);
     const [summary, setSummary] = useState('');
     const [loading, setLoading] = useState(false);
+    const [summaryList, setSummaryList] = useState();
     const params = useParams();  // ✅ Added useParams()
+    const prompt = `Generate multiple resume summaries (4-5 lines each) for the job title: {jobTitle}. 
+    Provide at least 3 variations. Format the response as an array of JSON objects with "job_title" and "resume_summary" fields.`;
+
+
+    const generateSummaryFromAI = async () => {
+        setLoading(true);
+        const Prompt = prompt.replace('{jobTitle}', resumeInfo?.jobTitle);
+        console.log("Prompt:", Prompt);
+    
+        try {
+            const result = await AIChatSession.sendMessage(Prompt);
+            const responseText = await result.response.text();  // ✅ Ensure we await response
+            console.log("Raw Response:", responseText);
+    
+            let parsedResponse;
+            try {
+                parsedResponse = JSON.parse(responseText);
+            } catch (error) {
+                // If JSON parsing fails, try splitting by new lines
+                parsedResponse = responseText.split("\n").filter(line => line.trim() !== "");
+            }
+    
+            console.log("Parsed Response:", parsedResponse);
+    
+            // Ensure it's an array before setting state
+            if (Array.isArray(parsedResponse)) {
+                setSummaryList(parsedResponse);
+            } else {
+                setSummaryList([parsedResponse]);  // Wrap in array if it's a single object
+            }
+        } catch (error) {
+            console.error("Error generating summary:", error);
+            toast.error("Error generating summary");
+        } finally {
+            setLoading(false);
+        }
+    };
+    
+
 
     useEffect(() => {
         if (summary) {
@@ -27,7 +68,7 @@ function SummaryForm({ enableNext }) {  // ✅ Added enableNext as a prop
 
         const data = { summary };
 
-        GlobalApi.updateResumeDetail(params.resumeId, { data })  
+        GlobalApi.updateResumeDetail(params.resumeId, { data })
             .then((resp) => {
                 setLoading(false);
                 console.log("Update successful:", resp.data);
@@ -48,7 +89,7 @@ function SummaryForm({ enableNext }) {  // ✅ Added enableNext as a prop
             <form className='mt-7' onSubmit={submitHandler}>
                 <div className='flex justify-between items-end'>
                     <label>Add Summary</label>
-                    <Button type="button" variant="outline" size="sm" className="border-purple-500 text-purple-500">
+                    <Button type="button" variant="outline" size="sm" className="border-purple-500 text-purple-500" onClick={() => generateSummaryFromAI()}>
                         Generate from AI <ImMagicWand />
                     </Button>
                 </div>
@@ -59,6 +100,17 @@ function SummaryForm({ enableNext }) {  // ✅ Added enableNext as a prop
                     </Button>
                 </div>
             </form>
+            {summaryList && <div>
+                <h2 className='font-bold text-lg'>Suggestions</h2>
+                {
+                    summaryList.map((suggestion, index) => (
+                        <div key={index} className='text-sm mt-2'>
+                           <h2 className='font-bold my-1'>{suggestion.job_title}</h2>
+                            <p>{suggestion?.resume_summary}</p>
+                        </div>
+                    ))
+                }
+            </div>}
         </div>
     );
 }
