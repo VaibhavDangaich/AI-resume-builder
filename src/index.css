@@ -132,4 +132,27 @@
   font-weight: 400;
   font-style: normal;
 }
+.rsw-ce ul {
+  list-style: disc;
+  padding-left: 2em;
+}
+
+.rsw-ce ol {
+  list-style: decimal;
+  padding-left: 2em;
+}
+.resume-section {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+.professional-experience ul {
+  list-style-type: disc !important; /* Ensure bullet points appear */
+  margin-left: 20px; /* Add indentation for bullets */
+}
+
+.professional-experience li {
+  margin-bottom: 5px; /* Adds spacing between list items */
+}
+
 

@@ -2,7 +2,7 @@ import React from 'react'
 
 function ExperiencePreview({ resumeInfo }) {
     return (
-        <div className='my-6 '>
+        <div className='my-6 experience-preview '>
             <h2 className='text-center font-bold text-sm mb-2' style={{
                 color: resumeInfo?.themeColor
             }}>Professional Experience</h2>
@@ -18,6 +18,7 @@ function ExperiencePreview({ resumeInfo }) {
                         }}>{experience?.position}</h2>
                         <h2 className='text-xs flex justify-between'>{experience?.company} , {experience?.city} , {experience?.state}
                             <span>{experience?.startDate}
+                            <span> - </span>
 
                                 {
 
@@ -25,9 +26,8 @@ function ExperiencePreview({ resumeInfo }) {
                                 }
                             </span>
                         </h2>
-                        <p className='text-xs my-2'>
-                            {experience?.description}
-                        </p>
+                        <div className='professional-experience' dangerouslySetInnerHTML={{ __html: experience.description }} />
+
 
                     </div>
                 ))
