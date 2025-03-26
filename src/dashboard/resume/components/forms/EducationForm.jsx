@@ -46,7 +46,6 @@ function EducationForm() {
     }
 
     const onSave = (e) => {
-        e.preventDefault();
         setLoading(true);
         const data = {
             data: {
