@@ -5,8 +5,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { ResumeInfoContext } from '@/context/ResumeInfoContext';
 import GlobalApi from '../../../../../Service/GlobalApi';
 import { useParams } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { toast } from 'react-hot-toast';
 import { AIChatSession } from '../../../../../Service/AIModel';
+import { Loader2Icon } from 'lucide-react';
 
 function SummaryForm({ enableNext }) {  // ✅ Added enableNext as a prop
     const { resumeInfo, setResumeInfo } = useContext(ResumeInfoContext);
@@ -73,13 +74,13 @@ function SummaryForm({ enableNext }) {  // ✅ Added enableNext as a prop
                 setLoading(false);
                 console.log("Update successful:", resp.data);
                 if (enableNext) enableNext(true);
-                toast.success("Details Updated");
+                toast.success("Summary Updated");
             })
             .catch((error) => {
                 setLoading(false);
-                toast.error("Error updating resume");
-                console.error("Error updating resume:", error.response?.data || error);
-            }); // ✅ Properly closed .catch()
+                toast.error("Error updating summary");
+                console.error("Error updating summary:", error.response?.data || error);
+            }); 
     };
 
     return (
@@ -96,7 +97,7 @@ function SummaryForm({ enableNext }) {  // ✅ Added enableNext as a prop
                 <Textarea className="mt-5" onChange={(e) => setSummary(e.target.value)} required></Textarea>
                 <div className='mt-2 flex justify-end'>
                     <Button type="submit" disabled={loading}>
-                        {loading ? "Saving..." : "Save"}
+                        {loading ? (<Loader2Icon className='animate-spin'></Loader2Icon>) : "Save"}
                     </Button>
                 </div>
             </form>

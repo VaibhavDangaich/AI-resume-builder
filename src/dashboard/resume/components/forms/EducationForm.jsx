@@ -5,11 +5,11 @@ import { Loader, Trash2Icon } from 'lucide-react'
 import { ResumeInfoContext } from '../../../../context/ResumeInfoContext';
 import { useParams } from 'react-router-dom';
 import GlobalApi from '../../../../../Service/GlobalApi';
-import { toast } from 'react-toastify';
+import { toast } from 'react-hot-toast';
 function EducationForm() {
     const { resumeInfo, setResumeInfo } = useContext(ResumeInfoContext);
     const [loading,setLoading] = useState(false);
-    const { params } = useParams();
+    const  params  = useParams();
     const [educationalList, setEducationalList] = useState([{
         institution: '',
         degree: '',
@@ -45,15 +45,16 @@ function EducationForm() {
 
     }
 
-    const onSave = (e) => {
+    const onSave = async (e) => {
         setLoading(true);
+        console.log("Params:", params);
         const data = {
             data: {
                 education: educationalList
 
             }
         };
-        GlobalApi.updateResumeDetail(params.resumeId.data).then((resp) => {
+        GlobalApi.updateResumeDetail(params.resumeId,data).then((resp) => {
             console.log(resp.data);
             setLoading(false);
             toast.success('Education details updated');
@@ -67,7 +68,7 @@ function EducationForm() {
 
     useEffect(() => {
         setResumeInfo({
-            ...resumeInfo,
+            ...resumeInfo, 
             education: educationalList
         });
     }, [educationalList]);
