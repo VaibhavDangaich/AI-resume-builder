@@ -6,14 +6,15 @@ import SummaryForm from './forms/SummaryForm';
 import ExperienceForm from './forms/ExperienceForm';
 import EducationForm from './forms/EducationForm';
 import SkillsForm from './forms/SkillsForm';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import AnimatedHomeButton from '@/components/ui/AnimatedHomeButton';
+import { useParams } from 'react-router-dom';
 
 function FormSection() {
   const [activeFormIndex, setActiveFormIndex] = useState(1);
   const [enableNext,setEnableNext]=useState(false);
-
+  const {resumeId}=useParams();
   return (
     <div>
       <div className='flex justify-between items-center'>
@@ -67,6 +68,10 @@ function FormSection() {
       {
         activeFormIndex===5 &&
         <SkillsForm></SkillsForm>
+      }
+      {
+        activeFormIndex==6 &&
+        <Navigate to={"/my-resume/"+resumeId+"/view"}></Navigate>
       }
 
     </div>

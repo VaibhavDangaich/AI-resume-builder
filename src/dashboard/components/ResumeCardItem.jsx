@@ -2,6 +2,14 @@ import { Notebook } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import TiltedCard from './../../components/ui/TiltedCard';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 function ResumeCardItem({ resume }) {
   const [pos, setPos] = useState({ x: 50, y: 50 });
@@ -44,6 +52,18 @@ function ResumeCardItem({ resume }) {
           </div>
         }
       />
+      <DropdownMenu>
+  <DropdownMenuTrigger>Open</DropdownMenuTrigger>
+  <DropdownMenuContent>
+    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem>Edit</DropdownMenuItem>
+    <DropdownMenuItem>View</DropdownMenuItem>
+    <DropdownMenuItem>Download</DropdownMenuItem>
+    <DropdownMenuItem>Delete</DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>
+
     </Link>
   );
 }

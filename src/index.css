@@ -165,3 +165,23 @@
   background-size: 200% 200%;
   animation: gradient-move 3s infinite alternate ease-in-out;
 }
+
+@media print{
+  #no-print{
+    display: none;
+  }
+  #print-area{
+    display: block;
+  }
+
+body{
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+}
+}
+
+@page{
+  size: auto;
+  margin: 0mm;
+}
