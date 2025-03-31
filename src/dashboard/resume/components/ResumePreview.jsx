@@ -13,6 +13,7 @@ function ResumePreview() {
        borderColor:resumeInfo?.themeColor
 
     }}>
+   
         {/*Personal details*/}
         <PersonalDetailPreview resumeInfo={resumeInfo}></PersonalDetailPreview>
 

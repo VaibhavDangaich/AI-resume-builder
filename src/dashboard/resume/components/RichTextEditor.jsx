@@ -13,7 +13,7 @@ import { Loader } from 'lucide-react';
 
 const PROMPT = "position title: {position}, Depends on position title give me 5-7 bullet points for my experience in resume, give me result in HTML format";
 
-const RichTextEditor = ({ onChangeTextEditor, index }) => {
+const RichTextEditor = ({ onChangeTextEditor, index ,defaultValue}) => {
     const { resumeInfo, setResumeInfo } = useContext(ResumeInfoContext);
     const [value, setValue] = useState('');
     const [loading, setLoading] = useState(false);

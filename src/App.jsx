@@ -5,11 +5,14 @@ import { Button } from './components/ui/button'
 import { useUser } from '@clerk/clerk-react'
 import Header from './components/custom/Header';
 import toast, { Toaster } from 'react-hot-toast';
+import { ResumeInfoContext } from './context/ResumeInfoContext';
 
+import { useState } from 'react';
 
 function App() {
   console.log("app is loading");
   const {user,isLoaded,isSignedIn}=useUser();
+ 
   
   if(!isSignedIn&&isLoaded)
   {
@@ -18,9 +21,11 @@ function App() {
 
   return (
   <div>
-  <Header></Header>
-    <Outlet></Outlet> 
-    <Toaster />
+
+      <Header />
+      <Outlet />
+      <Toaster />
+  
 
   </div>
   )
