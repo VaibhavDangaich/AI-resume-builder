@@ -18,6 +18,8 @@
     "@radix-ui/react-dropdown-menu": "^2.1.6",
     "@radix-ui/react-popover": "^1.1.6",
     "@radix-ui/react-slot": "^1.1.2",
+    "@react-three/fiber": "^9.1.1",
+    "@react-three/postprocessing": "^3.0.4",
     "@smastrom/react-rating": "^1.5.0",
     "@tailwindcss/vite": "^4.0.12",
     "axios": "^1.8.3",
@@ -27,6 +29,7 @@
     "lucide-react": "^0.479.0",
     "ogl": "^1.0.11",
     "postcss-cli": "^11.0.0",
+    "postprocessing": "^6.37.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.5.2",
@@ -38,6 +41,7 @@
     "react-web-share": "^2.0.2",
     "tailwind-merge": "^3.0.2",
     "tailwindcss-animate": "^1.0.7",
+    "three": "^0.175.0",
     "uuid": "^11.1.0"
   },
   "devDependencies": {
