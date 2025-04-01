@@ -1,6 +1,6 @@
-import { Notebook } from 'lucide-react';
+import { Menu, Notebook } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import TiltedCard from './../../components/ui/TiltedCard';
 import {
   DropdownMenu,
@@ -10,10 +10,16 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { SiThreedotjs } from 'react-icons/si';
 
 function ResumeCardItem({ resume }) {
   const [pos, setPos] = useState({ x: 50, y: 50 });
   const [bgPos, setBgPos] = useState({ x: 0, y: 0 });
+  const Navigation = useNavigate();
+
+  const onMenuClick = (url) => {
+    Navigation(url);
+  }
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -47,22 +53,29 @@ function ResumeCardItem({ resume }) {
         showTooltip={true}
         displayOverlayContent={true}
         overlayContent={
-          <div className="absolute inset-0 flex items-center justify-center bg-black/50 text-black text-lg font-semibold text-center">
+          <div className="relative inset-0 flex items-center justify-center bg-black/50 text-black text-lg font-semibold text-center">
             {resume.title}
+            <div className='absolute -bottom-65 -right-17'> {/* Changed positioning */}
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex gap-2 justify-center items-center bg-white px-3 py-1 rounded-md shadow-md">
+                <Menu size={20}></Menu>
+                <span>Open</span>
+                  
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end"> {/* Align dropdown properly */}
+                  <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={() => onMenuClick(`/dashboard/resume/${resume.documentId}/edit`)}>Edit</DropdownMenuItem>
+                  <DropdownMenuItem>View</DropdownMenuItem>
+                  <DropdownMenuItem>Download</DropdownMenuItem>
+                  <DropdownMenuItem>Delete</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
           </div>
         }
       />
-      <DropdownMenu>
-  <DropdownMenuTrigger>Open</DropdownMenuTrigger>
-  <DropdownMenuContent>
-    <DropdownMenuLabel>My Account</DropdownMenuLabel>
-    <DropdownMenuSeparator />
-    <DropdownMenuItem>Edit</DropdownMenuItem>
-    <DropdownMenuItem>View</DropdownMenuItem>
-    <DropdownMenuItem>Download</DropdownMenuItem>
-    <DropdownMenuItem>Delete</DropdownMenuItem>
-  </DropdownMenuContent>
-</DropdownMenu>
+
 
     </Link>
   );
