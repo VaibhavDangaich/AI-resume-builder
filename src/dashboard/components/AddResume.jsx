@@ -32,16 +32,15 @@ function AddResume() {
       setLoading(true);
       const uuid = uuidv4();
       const data = {
-        data: {
-          title: resumeTitle,
-          resumeId: uuid, // Correct UUID assignment
-          userEmail: user?.primaryEmailAddress?.emailAddress,
-          userName: user?.fullName,
-        }
+        title: resumeTitle,
+        resumeId: uuidv4(),
+        userEmail: user?.primaryEmailAddress?.emailAddress,
+        userName: user?.fullName,
       };
+
   
       const resp = await GlobalApi.createNewResume(data);
-      console.log(resp.data.data.documentId);
+      console.log(resp.data.documentId);
       setLoading(false);
 
       setOpenDialog(false); // Close dialog after success
@@ -52,7 +51,8 @@ function AddResume() {
       }
       
     } catch (error) {
-      console.error("Error creating resume:", error);
+
+      console.error("Error creating resume:", error.response?.data || error.message);
       setLoading(false);
     }
   };
