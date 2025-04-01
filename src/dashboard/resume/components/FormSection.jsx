@@ -10,6 +10,7 @@ import { Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import AnimatedHomeButton from '@/components/ui/AnimatedHomeButton';
 import { useParams } from 'react-router-dom';
+import ThemeColor from './ThemeColor';
 
 function FormSection() {
   const [activeFormIndex, setActiveFormIndex] = useState(1);
@@ -22,9 +23,9 @@ function FormSection() {
       <Link to={"/dashboard"}>
         <Button><Home></Home>Home</Button>
       </Link>
+      <ThemeColor></ThemeColor>
       
-      
-      <Button variant="outline" size="sm" className="flex gap-2"><LayoutGrid></LayoutGrid>Theme</Button>
+     
      
 
       </div>
