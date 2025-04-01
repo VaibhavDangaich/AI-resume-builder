@@ -1,12 +1,56 @@
-# React + Vite
+# AI Resume Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Overview
 
-Currently, two official plugins are available:
+AI Resume Builder is a cutting-edge web application that helps users generate professional resumes using AI. With a sleek UI and interactive elements, it enhances the resume creation experience while ensuring clarity and conciseness.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## Expanding the ESLint configuration
+- **AI-Powered Resume Generation**: Uses AI to generate optimized resume content.
+- **Interactive UI**: Smooth animations and an intuitive user experience.
+- **User Authentication**: Integrated with Clerk for seamless authentication.
+- **Real-Time Preview**: View changes as you edit your resume.
+- **Dithered Background Effect**: Aesthetic visual enhancements for a modern look.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+
+- **Frontend**: React, Tailwind CSS
+- **Backend**: Strapi, Neon (optional for API handling)
+- **Authentication**: Clerk
+- **Deployment**: Vercel / Netlify
+
+## 📦 Installation
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-username/ai-resume-builder.git
+   cd ai-resume-builder
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+3. Start the development server:
+   ```sh
+   npm run dev
+   ```
+
+## 📌 Usage
+
+- Sign in using Clerk authentication.
+- Enter your details and let the AI generate a structured resume.
+- Customize layout and content dynamically.
+- Export or save your resume with ease.
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to open issues and submit pull requests.
+
+## 📜 License
+
+This project is licensed under the MIT License.
+
+---
+
+💡 **Stay connected!** Follow for updates and improvements!
+
