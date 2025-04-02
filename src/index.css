@@ -233,3 +233,30 @@ canvas {
   color: #ff00ff;
   animation: neonGlow 1.5s infinite alternate;
 }
+.form-container {
+  background-color: #121212; /* Dark but distinct */
+  border: 2px solid #8a2be2;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 10px rgba(138, 43, 226, 0.5);
+}
+label {
+  color: #b967ff; /* Soft purple */
+}
+
+Input::placeholder {
+  color: #aaaaaa; /* Light gray */
+}
+Input {
+  background-color: #1f1f1f; /* Slightly lighter than form background */
+  color: #ffffff; /* White text for contrast */
+  border: 2px solid #8a2be2; /* Bright purple border */
+  padding: 10px;
+  border-radius: 8px;
+}
+
+Input:focus {
+  border-color: #b967ff; /* Glowing purple on focus */
+  outline: none;
+  box-shadow: 0px 0px 8px #b967ff;
+}

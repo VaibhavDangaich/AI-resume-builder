@@ -66,7 +66,7 @@ function PersonalDetail({enableNext}) {
             <h2 className='font-bold text-lg'>Personal Details</h2>
             <p>Kickstart your journey with the essential details</p>
 
-            <form onSubmit={handleSubmit}>
+            <form className="form-container" onSubmit={handleSubmit}>
                 <div className='grid grid-cols-2 mt-5 gap-3'>
                     <div>
                         <label htmlFor='firstName' className='text-sm flex'>First Name<sup className='mt-2'><Asterisk color='red' size={10}></Asterisk></sup></label>
