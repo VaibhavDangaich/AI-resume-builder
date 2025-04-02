@@ -11,8 +11,8 @@ function Header() {
             <div className='flex '>
                 <img src='https://img.icons8.com/?size=100&id=bLp8jngMI59L&format=png&color=000000' alt='AI resume builder' width={50} height={50}></img>
                 <div className=' font-extrabold'>
-                    <p className='bruno-ace-sc-regular text-xl'><span className='iceberg-regular text-3xl font-extrabold'>AI</span> Resume</p>
-                    <p className='bruno-ace-sc-regular text-xl'>Builder</p>
+                    <p className='bruno-ace-sc-regular text-xl bg-gradient-to-r from-purple-500 via-cyan-400 to-pink-500 bg-clip-text text-transparent font-bold'><span className='iceberg-regular text-3xl font-extrabold glow-text'>AI</span> Resume</p>
+                    <p className='bruno-ace-sc-regular text-xl bg-gradient-to-r from-purple-500 via-cyan-400 to-pink-500 bg-clip-text text-transparent font-bold'>Builder</p>
                 </div>
 
 

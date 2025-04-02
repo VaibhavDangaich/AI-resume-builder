@@ -20,7 +20,7 @@ function App() {
   }
 
   return (
-  <div>
+  <div className='min-h-screen bg-[#202123]'>
 
       <Header />
       <Outlet />

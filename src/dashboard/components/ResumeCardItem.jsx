@@ -54,7 +54,7 @@ function ResumeCardItem({ resume, refreshData }) {
   };
 
   return (
-    <div className="cursor-pointer" onClick={handleCardClick}> {/* Wrap the entire card in a div */}
+    <div className="cursor-pointe r" onClick={handleCardClick}> {/* Wrap the entire card in a div */}
       <TiltedCard
         imageSrc=".\public\resume-icon-png-19036.png"
         altText={resume.title}
@@ -69,8 +69,8 @@ function ResumeCardItem({ resume, refreshData }) {
         showTooltip={true}
         displayOverlayContent={true}
         overlayContent={
-          <div className="absolute inset-0 flex items-center justify-center text-black text-lg font-semibold text-center">
-          <div className=' bg-slate-500 opacity-90 px-3 rounded-lg mt-7 ml-12 whitespace-nowrap'> {resume.title}</div>
+          <div className="absolute inset-0 flex items-center justify-center text-black text-lg font-semibold text-center ">
+          <div className='  opacity-90 px-3 -mt-1 ml-12 whitespace-nowrap bg-white/10 backdrop-blur-lg shadow-lg border border-white/20 rounded-xl hover:shadow-purple-400 transition-all text-[#ccccff]'> {resume.title}</div>
            
             <div className='absolute bottom-2 right-2'>
               <DropdownMenu>
