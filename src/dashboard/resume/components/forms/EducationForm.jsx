@@ -86,63 +86,78 @@ function EducationForm() {
 
     return (
         <div className='p-5 shadow-lg rounded-r-4xl border-t-purple-400 border-t-4 mt-10'>
-            <h2 className='font-bold text-lg'>Education</h2>
-            <p>Add your educational details</p>
-            <div>
+            <h2 className='text-[#b967ff] font-bold text-xl -mt-3'>Education</h2>
+            <p className='text-[#c4a2ff] text-sm mt-2'>Add your educational details</p>
+            <div className='mt-5'>
                 {educationalList.map((edu, index) => (
-                    <div key={index} className='grid grid-cols-2 gap-3 border p-3 my-5 rounded-lg'>
-                        <div className='col-span-2'>
-                            <label>University Name</label>
-                            <input
-                                name='institution'
-                                type='text'
-                                value={edu.institution}
-                                onChange={(e) => handleChange(e, index)}
-                            />
-                        </div>
-                        <div>
-                            <label>Degree</label>
-                            <input
-                                name='degree'
-                                type='text'
-                                value={edu.degree}
-                                onChange={(e) => handleChange(e, index)}
-                            />
-                        </div>
-                        <div>
-                            <label>Major</label>
-                            <input
-                                name='major'
-                                type='text'
-                                value={edu.major}
-                                onChange={(e) => handleChange(e, index)}
-                            />
-                        </div>
-                        <div>
-                            <label>Start Date</label>
-                            <input
-                                name='startDate'
-                                type='date'
-                                value={edu.startDate}
-                                onChange={(e) => handleChange(e, index)}
-                            />
-                        </div>
-                        <div>
-                            <label>End Date</label>
-                            <input
-                                name='endDate'
-                                type='date'
-                                value={edu.endDate}
-                                onChange={(e) => handleChange(e, index)}
-                            />
-                        </div>
-                        <div className='col-span-2'>
-                            <label>Description</label>
-                            <Textarea
-                                name='description'
-                                value={edu.description}
-                                onChange={(e) => handleChange(e, index)}
-                            />
+                    <div key={index}>
+                        <div className='form-container grid grid-cols-2 gap-3 p-3 my-5 rounded-lg'>
+
+                            <div className='col-span-2 flex flex-col gap-1'>
+                                <label className="text-sm font-medium text-purple-300">University Name</label>
+                                <input
+                                    name='institution'
+                                    type='text'
+                                    value={edu.institution}
+                                    onChange={(e) => handleChange(e, index)}
+                                    className="p-2 bg-black border border-purple-500 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-400"
+                                />
+                            </div>
+
+                            <div className="flex flex-col gap-1">
+                                <label className="text-sm font-medium text-purple-300">Degree</label>
+                                <input
+                                    name='degree'
+                                    type='text'
+                                    value={edu.degree}
+                                    onChange={(e) => handleChange(e, index)}
+                                    className="p-2 bg-black border border-purple-500 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-400"
+                                />
+                            </div>
+
+                            <div className="flex flex-col gap-1">
+                                <label className="text-sm font-medium text-purple-300">Major</label>
+                                <input
+                                    name='major'
+                                    type='text'
+                                    value={edu.major}
+                                    onChange={(e) => handleChange(e, index)}
+                                    className="p-2 bg-black border border-purple-500 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-400"
+                                />
+                            </div>
+
+                            <div className="flex flex-col gap-1">
+                                <label className="text-sm font-medium text-purple-300">Start Date</label>
+                                <input
+                                    name='startDate'
+                                    type='date'
+                                    value={edu.startDate}
+                                    onChange={(e) => handleChange(e, index)}
+                                    className="custom-date-input p-2 bg-black border border-purple-500 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-400"
+                                />
+                            </div>
+
+                            <div className="flex flex-col gap-1">
+                                <label className="text-sm font-medium text-purple-300">End Date</label>
+                                <input
+                                    name='endDate'
+                                    type='date'
+                                    value={edu.endDate}
+                                    onChange={(e) => handleChange(e, index)}
+                                    className="custom-date-input p-2 bg-black border border-purple-500 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-400"
+                                />
+                            </div>
+
+                            <div className="col-span-2 flex flex-col gap-1">
+                                <label className="text-sm font-medium text-purple-300">Description</label>
+                                <Textarea
+                                    name='description'
+                                    value={edu.description}
+                                    onChange={(e) => handleChange(e, index)}
+                                    className="p-2 bg-black border border-purple-500 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-400"
+                                />
+                            </div>
+
                         </div>
                     </div>
                 ))}

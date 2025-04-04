@@ -104,10 +104,10 @@ function ExperienceForm() {
         <div className='p-5 shadow-lg rounded-r-4xl border-t-purple-400 border-t-4 mt-10'>
             <h2 className='text-[#b967ff] font-bold text-xl -mt-3'>Professional Experience</h2>
             <p className='text-[#c4a2ff] text-sm mt-2'>Showcase your past roles and achievements to highlight your expertise and career growth</p>
-            <div>
+            <div className=' mt-5'>
                 {experienceList.map((exp, index) => (
-                    <div key={index}>
-                        <div className='grid grid-cols-2 gap-3 border p-3 my-5 rounded-lg'>
+                    <div key={index} className='form-container mt-3'>
+                        <div className='grid grid-cols-2 gap-3 p-3 my-5 rounded-lg'>
                             <div>
                                 <label htmlFor='position' className='text-xs'>Position Title</label>
                                 <Input name="position" defaultValue={exp.position} onChange={(event) => handleChange(event, index)} />
@@ -126,14 +126,14 @@ function ExperienceForm() {
                             </div>
                             <div>
                                 <label htmlFor='startDate' className='text-xs'>Start Date</label>
-                                <Input type="date" name="startDate" defaultValue={exp.startDate} onChange={(event) => handleChange(event, index)} />
+                                <Input className="custom-date-input" type="date" name="startDate" defaultValue={exp.startDate} onChange={(event) => handleChange(event, index)} />
                             </div>
                             <div>
                                 <label htmlFor='endDate' className='text-xs'>End Date</label>
-                                <Input type="date" name="endDate" defaultValue={exp.endDate} onChange={(event) => handleChange(event, index)} />
+                                <Input className="custom-date-input" type="date" name="endDate" defaultValue={exp.endDate} onChange={(event) => handleChange(event, index)} />
                             </div>
                             <div className='col-span-2'>
-                                <RichTextEditor index={index} defaultValue={exp.description} onChangeTextEditor={(event) => handleEditor(event, 'description', index)} />
+                                <RichTextEditor  index={index} defaultValue={exp.description} onChangeTextEditor={(event) => handleEditor(event, 'description', index)} />
                             </div>
                         </div>
                         <div className='flex justify-between'>

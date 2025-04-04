@@ -172,6 +172,11 @@
   }
   #print-area{
     display: block;
+    
+  }
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
 body{
@@ -259,4 +264,47 @@ Input:focus {
   border-color: #b967ff; /* Glowing purple on focus */
   outline: none;
   box-shadow: 0px 0px 8px #b967ff;
+}
+@keyframes neonGlow {
+  0% { text-shadow: 0 0 5px #a855f7, 0 0 10px #9333ea, 0 0 15px #9333ea; }
+  50% { text-shadow: 0 0 10px #a855f7, 0 0 20px #9333ea, 0 0 30px #9333ea; }
+  100% { text-shadow: 0 0 5px #a855f7, 0 0 10px #9333ea, 0 0 15px #9333ea; }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes slideUpFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.suggestions-heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #a855f7;
+  animation: neonGlow 1.5s infinite alternate;
+}
+
+.suggestions-text {
+  font-size: 1rem;
+  color: #ccc;
+  animation: slideUpFadeIn 0.8s ease-out;
+}
+
+.spark {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #9333ea;
+  box-shadow: 0 0 10px #9333ea;
+  border-radius: 50%;
+  opacity: 0;
+  animation: flicker 1.2s infinite alternate;
+}
+.custom-date-input::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  opacity: 1;
 }

@@ -9,7 +9,10 @@ import { ResumeInfoContext } from './context/ResumeInfoContext';
 
 import { useState } from 'react';
 
+
 function App() {
+
+
   console.log("app is loading");
   const {user,isLoaded,isSignedIn}=useUser();
  

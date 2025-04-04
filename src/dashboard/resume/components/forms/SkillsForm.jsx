@@ -62,11 +62,11 @@ function SkillsForm() {
 
   return (
     <div className='p-5 shadow-lg rounded-r-4xl border-t-purple-400 border-t-4 mt-10'>
-      <h2 className='font-bold text-lg'>Skills</h2>
-      <p>Add your top professional skills</p>
-      <div>
+      <h2 className='text-[#b967ff] font-bold text-xl -mt-3'>Skills</h2>
+      <p className='text-[#c4a2ff] text-sm mt-2'>Add your top professional skills</p>
+      <div className='mt-5'>
         {skillsList.map((skill, index) => (
-          <div key={index} className='flex justify-between mb-2 p-3 border rounded-lg'>
+          <div key={index} className='flex justify-between mb-2 p-3 form-container rounded-lg mt-3'>
             <div>
               <label className='text-xs'>Name</label>
               <Input

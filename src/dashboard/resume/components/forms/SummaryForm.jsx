@@ -110,11 +110,11 @@ function SummaryForm({ enableNext }) {
             </form>
             {summaryList.length > 0 && (
                 <div>
-                    <h2 className='font-bold text-lg'>Suggestions</h2>
+                    <h2 className='font-bold text-lg text-[#A855F7]'>Suggestions</h2>
                     {summaryList.map((suggestion, index) => (
                         <div key={index} className='text-sm mt-2'>
-                            <h2 className='font-bold my-1'>{suggestion.job_title}</h2>
-                            <p>{suggestion?.resume_summary}</p>
+                            <h2 className='font-bold my-1 text-[#B48EFC]'>{suggestion.job_title}</h2>
+                            <p className='text-[#A0A0A0]'>{suggestion?.resume_summary}</p>
                         </div>
                     ))}
                 </div>

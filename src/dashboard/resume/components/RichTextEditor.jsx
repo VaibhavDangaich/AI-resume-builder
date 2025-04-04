@@ -97,9 +97,11 @@ const RichTextEditor = ({ onChangeTextEditor, index ,defaultValue}) => {
                     onChange={(e) => {
                         setValue(e.target.value);
                         onChangeTextEditor(e);
+                        
                     }}
+                    className='text-white'
                 >
-                    <Toolbar>
+                    <Toolbar >
                         <BtnUndo />
                         <BtnRedo />
                         <Separator />
