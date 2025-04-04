@@ -87,8 +87,8 @@ function SummaryForm({ enableNext }) {
 
     return (
         <div className='p-5 shadow-lg rounded-r-4xl border-t-purple-400 border-t-4 mt-10'>
-            <h2 className='font-bold text-lg'>Summary</h2>
-            <p>Craft a standout summary for your job title</p>
+            <h2 className=' text-[#b967ff] font-bold text-xl -mt-3'>Summary</h2>
+            <p className='text-[#c4a2ff] text-sm mt-2'>Craft a standout summary for your job title</p>
             <form className='mt-7' onSubmit={submitHandler}>
                 <div className='flex justify-between items-end'>
                     <label>Add Summary</label>

@@ -247,7 +247,7 @@ label {
 Input::placeholder {
   color: #aaaaaa; /* Light gray */
 }
-Input {
+Input,Textarea {
   background-color: #1f1f1f; /* Slightly lighter than form background */
   color: #ffffff; /* White text for contrast */
   border: 2px solid #8a2be2; /* Bright purple border */

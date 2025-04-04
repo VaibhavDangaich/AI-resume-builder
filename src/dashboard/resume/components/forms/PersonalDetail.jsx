@@ -63,10 +63,10 @@ function PersonalDetail({enableNext}) {
     
     return (
         <div className='p-5 shadow-lg rounded-r-4xl border-t-purple-400 border-t-4 mt-10'>
-            <h2 className='font-bold text-lg'>Personal Details</h2>
-            <p>Kickstart your journey with the essential details</p>
+            <h2 className=' text-[#b967ff] font-bold text-xl -mt-3'>Personal Details</h2>
+            <p className='text-[#c4a2ff] text-sm mt-2'>Kickstart your journey with the essential details</p>
 
-            <form className="form-container" onSubmit={handleSubmit}>
+            <form className="form-container mt-5" onSubmit={handleSubmit}>
                 <div className='grid grid-cols-2 mt-5 gap-3'>
                     <div>
                         <label htmlFor='firstName' className='text-sm flex'>First Name<sup className='mt-2'><Asterisk color='red' size={10}></Asterisk></sup></label>

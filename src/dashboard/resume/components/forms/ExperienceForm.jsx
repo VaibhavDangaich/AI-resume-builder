@@ -102,8 +102,8 @@ function ExperienceForm() {
 
     return (
         <div className='p-5 shadow-lg rounded-r-4xl border-t-purple-400 border-t-4 mt-10'>
-            <h2 className='font-bold text-lg'>Professional Experience</h2>
-            <p>Showcase your past roles and achievements to highlight your expertise and career growth</p>
+            <h2 className='text-[#b967ff] font-bold text-xl -mt-3'>Professional Experience</h2>
+            <p className='text-[#c4a2ff] text-sm mt-2'>Showcase your past roles and achievements to highlight your expertise and career growth</p>
             <div>
                 {experienceList.map((exp, index) => (
                     <div key={index}>
