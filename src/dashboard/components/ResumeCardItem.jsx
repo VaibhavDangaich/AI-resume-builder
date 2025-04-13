@@ -56,7 +56,8 @@ function ResumeCardItem({ resume, refreshData }) {
   return (
     <div className="cursor-pointe r" onClick={handleCardClick}> {/* Wrap the entire card in a div */}
       <TiltedCard
-        imageSrc=".\public\resume-icon-png-19036.png"
+       imageSrc="/resume-icon-png-19036.png"
+
         altText={resume.title}
         captionText={resume.title}
         containerHeight="280px"
