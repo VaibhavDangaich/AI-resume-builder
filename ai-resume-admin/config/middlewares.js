@@ -5,7 +5,7 @@ module.exports = [
   {
     name: 'strapi::cors',
     config: {
-      origin: ['https://ai-resume-builder-8a6b.vercel.app/'], // 👈 put your frontend deployed URL here
+      origin: ['https://ai-resume-builder-8a6b.vercel.app'], // 👈 put your frontend deployed URL here
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
       headers: '*',
       credentials: true,
