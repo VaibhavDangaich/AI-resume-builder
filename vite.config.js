@@ -15,6 +15,6 @@ export default defineConfig({
   },
   server: {
     host: '0.0.0.0',
-    allowedHosts: ['ai-resume-builder-1-7vfs.onrender.com'],
+    allowedHosts: ['https://ai-resume-builder-1-7vfs.onrender.com'],
   },
 })
